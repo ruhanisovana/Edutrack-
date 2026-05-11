@@ -1,0 +1,388 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    text-align:center;
+    padding:15px;
+}
+
+.school-info{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.school-info h1{
+    color:#1d3557;
+    margin-bottom:10px;
+    font-size:32px;
+}
+
+nav{
+    background:#1d3557;
+    padding:120x;
+    border_radius:12px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    background:#457b9d;
+    padding:10px 15px;
+    border-radius:10px;
+    transition:0.3s;
+    font-sizs:15px;
+}
+
+nav a:hover{
+    background:#e63946;
+    transform:scale(1.05);
+}
+
+h1,h2,h3{
+    margin:15px 0;
+    color:#1d3557;
+}
+
+form{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    width:95%;
+    max-width:700px;
+    margin:auto;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+input,
+select,
+button{
+    padding:10px;
+    margin:8px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+button{
+    background:#1d3557;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    border:none;
+
+}
+
+button:hover{
+    background:#e63946;
+    transform:scale(1.05);
+}
+
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+    background:white;
+    border-radiur:12px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+
+}
+
+th{
+    background:#1d3557;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f1f1f1;
+}
+
+a{
+    text-decoration:none;
+}
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin:20px auto;
+    width:95%;
+    max-width:700px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+@media(max,width:700px){
+    .school-info h1{
+        font-size:24px;
+    }
+    nav{
+        flex-direction:column;
+        align-items:center;
+
+    }
+    nav a{
+        width:90%;
+    }
+    table{
+        font-size:14px;
+    }
+    input,
+    button,
+    select{
+        width:90%;
+    }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+
+h1, h2, h3{
+    color:
+    text-align: center;
+
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background:
+    color: white;
+    padding: 18px 15px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translate(-2px);
+    box_shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+        font-family: Arial, sans-serif;
+            margin: 0;
+                background: #f4f6f8;
+                }
+
+                /* This is the key - forces buttons to wrap */
+                .navbar {
+                    background: #1e3a5f;
+                        padding: 10px;
+                            display: flex !important;
+                                flex-wrap: wrap !important;
+                                    gap: 8px !important;
+                                    }
+
+                                    .navbar a {
+                                        background: #3d5a80;
+                                            color: white;
+                                                padding: 8px 14px;
+                                                    text-decoration: none;
+                                                        border-radius: 6px;
+                                                            font-size: 14px;
+                                                                display: inline-block;
+                                                                }
+
+                                                                .navbar a:hover {
+                                                                    background: #517ca4;
+                                                                    }
+
+                                                                    .container {
+                                                                        padding: 20px;
+                                                                        }
+}
+/* Reset */
+* {
+    box-sizing: border-box;
+        margin: 0;
+            padding: 0;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+                    background: #f4f6f8;
+                        color: #333;
+                        }
+
+                        /* TOP NAVBAR - This fixes your current mess */
+                        .navbar {
+                            background: #1e3a5f;
+                                padding: 12px 15px;
+                                    display: flex;
+                                        flex-wrap: wrap;  /* This makes buttons go to next line instead of overlapping */
+                                            gap: 8px;         /* This gives space between buttons */
+                                                align-items: center;
+                                                }
+
+                                                .navbar a {
+                                                    background: #3d5a80;
+                                                        color: white;
+                                                            padding: 8px 14px;
+                                                                text-decoration: none;
+                                                                    border-radius: 6px;
+                                                                        font-size: 14px;
+                                                                            white-space: nowrap;  /* Prevents text from breaking */
+                                                                                transition: background 0.2s;
+                                                                                }
+
+                                                                                .navbar a:hover {
+                                                                                    background: #517ca4;
+                                                                                    }
+
+                                                                                    .navbar .btn-red {
+                                                                                        background: #dc3545;
+                                                                                        }
+
+                                                                                        .navbar .btn-red:hover {
+                                                                                            background: #c82333;
+                                                                                            }
+
+                                                                                            /* Main content area */
+                                                                                            .container {
+                                                                                                max-width: 1000px;
+                                                                                                    margin: 20px auto;
+                                                                                                        padding: 0 15px;
+                                                                                                        }
+
+                                                                                                        .school-header {
+                                                                                                            text-align: center;
+                                                                                                                background: white;
+                                                                                                                    padding: 20px;
+                                                                                                                        border-radius: 10px;
+                                                                                                                            margin-bottom: 20px;
+                                                                                                                                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                                                                                                                                }
+
+                                                                                                                                .school-header h2 {
+                                                                                                                                    margin-bottom: 10px;
+                                                                                                                                        color: #1e3a5f;
+                                                                                                                                        }
+
+                                                                                                                                        .school-header p {
+                                                                                                                                            margin: 4px 0;
+                                                                                                                                                font-size: 14px;
+                                                                                                                                                    line-height: 1.4;
+                                                                                                                                                    }
+
+                                                                                                                                                    /* Table style */
+                                                                                                                                                    .table-header {
+                                                                                                                                                        background: #1e3a5f;
+                                                                                                                                                            color: white;
+                                                                                                                                                                padding: 12px;
+                                                                                                                                                                    text-align: center;
+                                                                                                                                                                        font-weight: bold;
+                                                                                                                                                                            border-radius: 8px 8px 0 0;
+                                                                                                                                                                            }
+
+                                                                                                                                                                            table {
+                                                                                                                                                                                width: 100%;
+                                                                                                                                                                                    background: white;
+                                                                                                                                                                                        border-collapse: collapse;
+                                                                                                                                                                                            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                                                                                                                                                                                            }
+
+                                                                                                                                                                                            th, td {
+                                                                                                                                                                                                padding: 12px 8px;
+                                                                                                                                                                                                    text-align: left;
+                                                                                                                                                                                                        border-bottom: 1px solid #eee;
+                                                                                                                                                                                                            font-size: 14px;
+                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                            th {
+                                                                                                                                                                                                                background: #2c4d73;
+                                                                                                                                                                                                                    color: white;
+                                                                                                                                                                                                                        font-weight: 500;
+                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                        /* Dashboard button grid for home page */
+                                                                                                                                                                                                                        .dashboard-grid {
+                                                                                                                                                                                                                            display: grid;
+                                                                                                                                                                                                                                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                                                                                                                                                                                                                                    gap: 15px;
+                                                                                                                                                                                                                                        margin: 25px 0;
+                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                        .dashboard-btn {
+                                                                                                                                                                                                                                            background: white;
+                                                                                                                                                                                                                                                color: #1e3a5f;
+                                                                                                                                                                                                                                                    padding: 25px 15px;
+                                                                                                                                                                                                                                                        text-decoration: none;
+                                                                                                                                                                                                                                                            border-radius: 12px;
+                                                                                                                                                                                                                                                                font-size: 16px;
+                                                                                                                                                                                                                                                                    font-weight: 500;
+                                                                                                                                                                                                                                                                        text-align: center;
+                                                                                                                                                                                                                                                                            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+                                                                                                                                                                                                                                                                                border: 2px solid #e0e6ed;
+                                                                                                                                                                                                                                                                                    transition: all 0.2s;
+                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                    .dashboard-btn:hover {
+                                                                                                                                                                                                                                                                                        transform: translateY(-3px);
+                                                                                                                                                                                                                                                                                            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+                                                                                                                                                                                                                                                                                                border-color: #3d5a80;
+                                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                                /* Mobile fix */
+                                                                                                                                                                                                                                                                                                @media (max-width: 600px) {
+                                                                                                                                                                                                                                                                                                    .navbar a {
+                                                                                                                                                                                                                                                                                                            font-size: 13px;
+                                                                                                                                                                                                                                                                                                                    padding: 7px 10px;
+                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                            th, td {
+                                                                                                                                                                                                                                                                                                                                    font-size: 12px;
+                                                                                                                                                                                                                                                                                                                                            padding: 8px 4px;
+                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                                }

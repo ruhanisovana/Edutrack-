@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Welcome to Edutrack System</h2>
+
+<p><strong>School :-</strong>{{ school_name }}</p>
+<p><strong>Address :-</strong>{{ address }}</p>
+<p><strong>School Start Time :-</strong>{{ start_time }}</p>
+<p><strong>Prayer :-</strong>{{ prayer_time }}</p>
+<p><strong>Juniors Breaks Up At :-</strong>{{ juniors_ending_time }}</p>
+<p><strong>Seniors Breaks Up At :-</strong>{{ seniors_ending_time }}</p>
+<p><strong>Major Teacher :-</strong>{{ Major_teacher }}</p>
+<p><strong>Contact Number :-</strong>{{ contact }}</p>
+
+<hr>
+
+<h3>Homework List</h3>
+
+<table border="1" style="margin:auto;">
+    <tr>
+        <th>Class</th>
+        <th>Subject</th>
+        <th>Homework</th>
+        <th>Date</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for h in homework %}
+    <tr>
+        <td>{{ h.class_name }}</td>
+        <td>{{ h.subject }}</td>
+        <td>{{ h.homework }}</td>
+        <td>{{ h.date }}</td>
+        <td>
+            <a href="/delete_homework/{{ h.id }}">
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

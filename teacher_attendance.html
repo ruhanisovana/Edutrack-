@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>Teachers</h1>
+
+<form method="POST", action="/teacher_attendance">
+    <label>Date:</label>
+
+    <input type="date" name="date" value="{{ date }}">
+
+    <br><br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Teacher Name</th>
+            <th>present ✅</th>
+            <th>Absent ❌</th>
+        </tr>
+
+        {% for teacher in teachers %}
+        <tr>
+            <td>{{ teacher.name }}</td>
+
+            <td>
+                <input type="radio" name="status_{{ teacher.name }}" value="present" {% if attendance_data.get(teacher.name)|string == "present" %}checked{% endif %}>
+            </td>
+
+            <td>
+                <input type="radio" name="status_{{ teacher.name }}" value="absent" {% if attendance_data.get(teacher.name)|string == "absent" %}checked{% endif %}>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <button type="submit">Save Teacher Attendance</button>
+</form>
+
+<br><br>
+
+<h3>Teacher Attendance History</h3>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Teacher Name</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for row in history %}
+    <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.teacher_name }}</td>
+        <td>{{ row.status }}</td>
+        <td>{{ row.date }}</td>
+        <td>
+            <a href="/delete_teacher_attendance/{{ row.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

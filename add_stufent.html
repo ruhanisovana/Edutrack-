@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ADD STUDENT</title>
+    </head>
+    <body>
+        <h2>Add Student</h2>
+        <form method="POST" action="/add_student">
+            Name:
+            <input type="text" name="name" required>
+            <br><br>
+            Class:
+            <select name="class" required>
+                <option value="">Select class</option>
+                <option value="Nursery">Nursery</option>
+                <option value="L.KG">L.KG</option>
+                <option value="U.KG">U.KG</option>
+                <option value="ST-1">ST-1</option>
+                <option value="ST-2">ST-2</option>
+            </select>
+            <br></br>
+            <button type="submit">Add student</button>
+        </form>
+
+        <hr>
+
+        <h3>All students</h3>
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for student in students %}
+            <tr>
+                <td>{{ student["id"] }}</td>
+                <td>{{ student["name"] }}</td>
+                <td>{{ student["class"] }}</td>
+                <td>
+                    <a href="/delete_student/{{ student.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/attendance">Go To Attendance</a>
+    </body>
+</html>

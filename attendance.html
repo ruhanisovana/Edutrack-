@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Daily Attendance</h2>
+<form method="GET" action="/attendance">
+    <select name="class" required>
+        <option value="">Select Class</option>
+        <option value="Nursery" {% if request.args.get('class') == "Nursery" %}Selected{% endif %}>Nursery</option>
+        <option value="L.KG" {% if request.args.get('class') == "L.KG" %}Selected{% endif %}>L.KG</option>
+        <option value="U.KG" {% if request.args.get('class') == "U.KG" %}Selected{% endif %}>U.KG</option>
+        <option value="ST-1" {% if request.args.get('class') == "ST-1" %}Selected{% endif %}>ST-1</option>
+        <option value="ST-2" {% if request.args.get('class') == "ST-2" %}Selected{% endif %}>ST-2</option>
+    </select>
+
+    <button type="submit">Load students</button>
+</form>
+
+<hr>
+
+{% if students %}
+
+<h3>Students:</h3>
+<form method="POST" action="/attendance">
+    <input type="hidden" name="class" value="{{ class_name }}" required>
+    Date:
+    <input type="date" name="date" value="{{ date }}" required>
+
+    <br><br>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Student Name</th>
+            <th>present ✅</th>
+            <th>Absent ❌</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>
+                <input type="radio" name="status_{{ student.name }}" value="1" {% if attendance_data.get(student.name)|string == "1" %}checked{% endif %} required>
+            </td>
+            <td>
+                <input type="radio" name="status_{{ student.name }}" value="0" {% if attendance_data.get(student.name)|string == "0" %}checked{% endif %} required>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+        <button type="submit">Save Attendance</button>
+</form>
+
+<h2>Attendance History</h2>
+
+<table border="1">
+    <tr>
+        <th>Student</th>
+        <th>Class</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for row in history %}
+    <tr>
+        <td>{{ row.student_name }}</td>
+        <td>{{ row.class_name }}</td>
+        <td>
+            {% if row.status == "1" %}
+                present
+            {% else %}
+                Absent
+            {% endif %}
+        </td>
+        <td>{{ row.date }}</td>
+        <td>
+            <a href="/delete_attendance/{{ row.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<br>
+<a href="/">Back</a>
+{% endblock %}

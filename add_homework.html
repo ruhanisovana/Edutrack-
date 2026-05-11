@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h2>Add Homework</h2>
+
+<form method="POST" action="/add_homework">
+    <label>Class:</label>
+    <br>
+    <select name="class">
+        <option value="">Select Class</option>
+        <option value="Nursery">Nursery</option>
+        <option value="L.KG">L.KG</option>
+        <option value="U.K.G">U.KG</option>
+        <option value="ST-1">ST-1</option>
+        <option value="ST-2">ST-2</option>
+    </select>
+    <br><br>
+    <label>subject:</label>
+    <br>
+    <select name="subject">
+        <option value="">Select Subject</option>
+        <option value="Bengali">Bengali</option>
+        <option value="english">English</option>
+        <option value="math">Math</option>
+        <option value="GK">Gk</option>
+        <option value="rhymes">Rhymes</option>
+        <option value="Drawing">Drawing</option>
+        <option value="drill">Drill</option>
+        <option value="all hand writing">All hand writting</option>
+        <option value="hindi">Hindi</option>
+        <option value="computer">Computer</option>
+    </select>
+    <br><br>
+
+    <label>Homework:</label>
+    <br>
+    <textarea name="homework" placeholder="write Homework" required>
+    </textarea>
+
+    <br><br>
+    <label>Date:</label>
+    <br>
+    <input type="date" name="date" required>
+    <br><br>
+    <button type="submit">Add</button>
+</form>
+
+<br>
+
+<a href="/">Back to dashboard</a>
+
+{% endblock %}

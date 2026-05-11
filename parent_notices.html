@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>School notices</h1>
+
+<h2>📢 School Notices</h2>
+{% for notice in notices %}
+<div class="notice">
+    <h3 class="title">{{ notice.title }}</h3>
+    <p class="date">{{ notice.date }}</p>
+    <p class="content">{{ notice.content }}</p>
+</div>
+{% else %}
+<p>No notice available right now.</p>
+{% endfor %}
+{% endblock %}

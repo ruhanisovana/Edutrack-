@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Add Teacher</h2>
+
+<form method="POST" action="/add_teacher">
+    Name:
+    <input type="text" name="name" placeholder="Enter teacher name" required>
+    <button type="submit">Add Teacher</button>
+</form>
+
+<br>
+
+<h3>Teacher list</h3>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Teacher Name</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for teacher in teachers %}
+    <tr>
+        <td>{{ teacher.id }}</td>
+        <td>{{ teacher.name }}</td>
+        <td>
+            <a href="/delete_teacher/{{ teacher.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="/teacher_attendance">Go to teacher_attendance</a>
+{% endblock %}
