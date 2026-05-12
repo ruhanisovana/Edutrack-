@@ -380,11 +380,11 @@ def updates():
 
     today = date.today().strftime('%Y-%m-%d')
 
-    fees = db.execute("SELECT student_name, class_name, amount, status, message, due_date FROM fees")
-    homework = db.execute("SELECT date, class_name, subject, homework FROM homework WHERE date = ?", today)
-    notices = db.execute("SELECT date, title, content, posted_by ORDER BY date DESC LIMIT 5")
-    attendance = db.execute("SELECT date, student_name, class_name, status FROM attendance WHERE date = ? ORDER BY class_name, student_name", today)
-    teacher_attendance = db.execute("SELECT teacher_name, status, date FROM teacher_attendance WHERE date = ? ORDER BY teacher_name", today)
+    fees = db.execute("SELECT * FROM fees")
+    homework = db.execute("SELECT * FROM homework")
+    notices = db.execute("SELECT * FROM notices")
+    attendance = db.execute("SELECT * FROM attendance")
+    teacher_attendance = db.execute("SELECT * FROM teacher_attendance")
 
     return render_template("public_updates.html", fees=fees, homework=homework, notices=notices, attendance=attendance, teacher_attendance=teacher_attendance, today=today)
 
@@ -392,4 +392,14 @@ def updates():
 def clear():
     session.clear()
     return "Session Cleared"
+
+
+
+
+
+
+
+
+
+    
 
