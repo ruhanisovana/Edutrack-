@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from cs50 import SQL
-from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -377,16 +376,42 @@ def fix_status():
 
 @app.route("/updates")
 def updates():
-
+    from datetime import date  
     today = date.today().strftime('%Y-%m-%d')
+    
 
-    fees = db.execute("SELECT * FROM fees")
-    homework = db.execute("SELECT * FROM homework")
-    notices = db.execute("SELECT * FROM notices")
-    attendance = db.execute("SELECT * FROM attendance")
-    teacher_attendance = db.execute("SELECT * FROM teacher_attendance")
+    try:
+        fees = db.execute("SELECT * FROM fees")
+    except:
+        fees = []
+        
+    try:
+        homework = db.execute("SELECT * FROM homework WHERE date = ?", today)
+    except:
+        homework = []
+        
+    try:
+        notices = db.execute("SELECT * FROM notices ORDER BY id DESC")
+    except:
+        notices = []
+        
+    try:
+        attendance = db.execute("SELECT * FROM attendance WHERE date = ?", today)
+    except:
+        attendance = []
+        
+    try:
+        teacher_attendance = db.execute("SELECT * FROM teacher_attendance WHERE date = ?", today)
+    except:
+        teacher_attendance = []
 
-    return render_template("public_updates.html", fees=fees, homework=homework, notices=notices, attendance=attendance, teacher_attendance=teacher_attendance, today=today)
+    return render_template("public_updates.html", 
+                           fees=fees, 
+                           homework=homework, 
+                           notices=notices, 
+                           attendance=attendance, 
+                           teacher_attendance=teacher_attendance,
+                           today=today)
 
 @app.route("/clear")
 def clear():
