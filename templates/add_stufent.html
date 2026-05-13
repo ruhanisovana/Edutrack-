@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>ADD STUDENT</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
+
+{% block title %}
+Add Student 
+{% block main %}
         <h2>Add Student</h2>
         <form method="POST" action="/add_student">
             Name:
@@ -47,5 +46,16 @@
         </table>
         <br>
         <a href="/attendance">Go To Attendance</a>
-    </body>
-</html>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
