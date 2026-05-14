@@ -130,7 +130,7 @@ def teacher_attendance():
 
             print("TEACHER NAME:", teacher_name)
 
-            status = request.form.get(f"status_{teacher['name']}")
+            status = int(request.form.get(f"status_{teacher['name']}"))
 
             print("STATUS:", status)
 
@@ -221,7 +221,7 @@ def attendance():
 
             print("STUDENT NAME", student_name)
 
-            status = request.form.get(f"status_{student['name']}")
+            status = int(request.form.get(f"status_{student['name']}"))
             print("student:", student['name'], "status:", status)
 
             print("STATUS", status)
