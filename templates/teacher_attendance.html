@@ -22,11 +22,11 @@
             <td>{{ teacher.name }}</td>
 
             <td>
-                <input type="radio" name="status_{{ teacher.name }}" value="present" {% if attendance_data.get(teacher.name)|string == "present" %}checked{% endif %}>
+                <input type="radio" name="status_{{ teacher.name }}" value="1" {% if attendance_data.get(teacher.name) == "1" %}checked{% endif %}>
             </td>
 
             <td>
-                <input type="radio" name="status_{{ teacher.name }}" value="absent" {% if attendance_data.get(teacher.name)|string == "absent" %}checked{% endif %}>
+                <input type="radio" name="status_{{ teacher.name }}" value= "0" {% if attendance_data.get(teacher.name) == "0" %}checked{% endif %}>
             </td>
         </tr>
         {% endfor %}
@@ -54,8 +54,14 @@
     <tr>
         <td>{{ row.id }}</td>
         <td>{{ row.teacher_name }}</td>
-        <td>{{ row.status }}</td>
-        <td>{{ row.date }}</td>
+        <td>
+    {% if row.status == 1 %}
+        <span class="present">Present</span>
+    {% else %}
+        <span class="absent">Absent</span>
+    {% endif %}
+        </td>
+        <td>{{ row.date }}</<td>
         <td>
             <a href="/delete_teacher_attendance/{{ row.id }}">Delete</a>
         </td>
@@ -63,3 +69,10 @@
     {% endfor %}
 </table>
 {% endblock %}
+
+
+
+
+
+
+
