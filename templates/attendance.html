@@ -40,10 +40,10 @@
         <tr>
             <td>{{ student.name }}</td>
             <td>
-                <input type="radio" name="status_{{ student.name }}" value="present" {% if attendance_data.get(student.name)|string == "present" %}checked{% endif %} required>
+                <input type="radio" name="status_{{ student.name }}" value="1" {% if attendance_data.get(student.name)|string == "1" %}checked{% endif %} required>
             </td>
             <td>
-                <input type="radio" name="status_{{ student.name }}" value="absent" {% if attendance_data.get(student.name)|string == "absent" %}checked{% endif %} required>
+                <input type="radio" name="status_{{ student.name }}" value="0" {% if attendance_data.get(student.name)|string == "0" %}checked{% endif %} required>
             </td>
         </tr>
         {% endfor %}
@@ -68,7 +68,7 @@
         <td>{{ row.student_name }}</td>
         <td>{{ row.class_name }}</td>
         <td>
-            {% if row.status == "1" %}
+            {% if row.status == 1 %}
                 present
             {% else %}
                 Absent
