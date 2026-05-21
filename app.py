@@ -376,9 +376,8 @@ def fix_status():
 @app.route("/updates", methods=["GET", "POST"])
 def updates():
     from datetime import date  
-    today = date.today().strftime('%Y-%m-%d')
-
-        if request.method == "POST":
+    today = date.today().strftime('%Y-%m-%d') 
+    if request.method == "POST":
 
     title = request.form.get("title")
 
