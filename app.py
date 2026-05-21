@@ -374,10 +374,27 @@ def fix_status():
         db.execute("UPDATE fees SET status = 'Paid' WHERE TRIM(LOWER(status)) = 'paid'")
         return redirect("/fees")
 
-@app.route("/updates")
+@app.route("/updates", methods=["GET", "POST"])
 def updates():
     from datetime import date  
     today = date.today().strftime('%Y-%m-%d')
+
+        if request.method == "POST":
+
+    title = request.form.get("title")
+
+    content = request.form.get("content")
+
+    posted_by = request.form.get("posted_by")
+
+    db.execute(
+        "INSERT INTO notices (title, content, posted_by) VALUES (?, ?, ?)",
+        title,
+        content,
+        posted_by
+    )
+
+    return redirect("/updates")
     
 
     try:
