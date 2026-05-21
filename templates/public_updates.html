@@ -27,6 +27,43 @@
                                                                                                 <h2>📢 School Updates - {{ today }}</h2>
 
                                                                                                     <h3>📋 School Notices</h3>
+                                                                                                <h2>Post Update</h2>
+
+<form method="POST">
+
+<input
+type="text"
+name="title"
+placeholder="Title"
+required>
+
+<br><br>
+
+<textarea
+name="content"
+placeholder="Write update"
+required></textarea>
+
+<br><br>
+
+<input
+type="text"
+name="posted_by"
+placeholder="Posted By"
+required>
+
+<br><br>
+
+<button type="submit">
+Post Update
+</button>
+
+</form>
+
+<hr>
+
+
+<h2>All Updates</h2>
                                                                                                         {% for n in notices %}
                                                                                                          <div class="notice" style="border:1px solid #ddd; padding:10px; margin:10px 0;">
     <h4>{{ n.title }}</h4>
