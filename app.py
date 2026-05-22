@@ -385,12 +385,12 @@ def updates():
 
             posted_by = request.form.get("posted_by")
 
-           db.execute(
-           "INSERT INTO notices (title, content, posted_by) VALUES (?, ?, ?)",
-          title,
-          content,
-          posted_by
-           )
+            db.execute(
+            "INSERT INTO notices (title, content, posted_by) VALUES (?, ?, ?)",
+            title,
+            content,
+            posted_by
+            )
 
           return redirect("/updates")
           
