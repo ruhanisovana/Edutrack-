@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from cs50 import SQL
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import os
 app = Flask(__name__)
 app.secret_key = "secret123"
 
-db = SQL("sqlite:///edutrack.db")
+
+db = SQL(os.getenv("DATABASE_URL"))
+
 
 db.execute("CREATE TABLE IF NOT EXISTS homework (id INTEGER PRIMARY KEY AUTOINCREMENT, class_name TEXT, subject TEXT, homework TEXT, date TEXT)")
 db.execute("""CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, hash TEXT)""")
