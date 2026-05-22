@@ -377,24 +377,23 @@ def fix_status():
 def updates():
     from datetime import date  
     today = date.today().strftime('%Y-%m-%d') 
+        
     if request.method == "POST":
+            title = request.form.get("title")
 
-    title = request.form.get("title")
+            content = request.form.get("content")
 
-    content = request.form.get("content")
+            posted_by = request.form.get("posted_by")
 
-    posted_by = request.form.get("posted_by")
+           db.execute(
+           "INSERT INTO notices (title, content, posted_by) VALUES (?, ?, ?)",
+          title,
+          content,
+          posted_by
+           )
 
-    db.execute(
-        "INSERT INTO notices (title, content, posted_by) VALUES (?, ?, ?)",
-        title,
-        content,
-        posted_by
-    )
-
-    return redirect("/updates")
-    
-
+          return redirect("/updates")
+          
     try:
         fees = db.execute("SELECT * FROM fees")
     except:
@@ -427,6 +426,8 @@ def updates():
                            attendance=attendance, 
                            teacher_attendance=teacher_attendance,
                            today=today)
+
+
 
 @app.route("/clear")
 def clear():
