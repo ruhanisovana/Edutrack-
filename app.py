@@ -9,16 +9,16 @@ app.secret_key = "secret123"
 db = SQL(os.getenv("DATABASE_URL"))
 
 
-db.execute("CREATE TABLE IF NOT EXISTS homework (id INTEGER PRIMARY KEY AUTOINCREMENT, class_name TEXT, subject TEXT, homework TEXT, date TEXT)")
-db.execute("""CREATE TABLE IF NOT EXISTS users ( id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, hash TEXT)""")
-db.execute("""CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, class TEXT)""")
-db.execute("""CREATE TABLE IF NOT EXISTS attendance (id INTEGER PRIMARY KEY AUTOINCREMENT, student_name TEXT, class_name TEXT, status INTEGER, date TEXT)""")
-db.execute("""CREATE TABLE IF NOT EXISTS teachers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)""")
-db.execute("""CREATE TABLE IF NOT EXISTS teacher_attendance (id INTEGER PRIMARY KEY AUTOINCREMENT, teacher_name TEXT, status INTEGER, date TEXT)""")
-db.execute("""CREATE TABLE IF NOT EXISTS notices (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, date TEXT DEFAULT CURRENT_DATE, posted_by TEXT)""")
+db.execute("CREATE TABLE IF NOT EXISTS homework (id SERIAL PRIMARY KEY, class_name TEXT, subject TEXT, homework TEXT, date TEXT)")
+db.execute("""CREATE TABLE IF NOT EXISTS users ( id SERIAL PRIMARY KEY, username TEXT UNIQUE, hash TEXT)""")
+db.execute("""CREATE TABLE IF NOT EXISTS students (id SERIAL PRIMARY KEY, name TEXT, class TEXT)""")
+db.execute("""CREATE TABLE IF NOT EXISTS attendance (id SERIAL PRIMARY KEY, student_name TEXT, class_name TEXT, status INTEGER, date TEXT)""")
+db.execute("""CREATE TABLE IF NOT EXISTS teachers (id SERIAL PRIMARY KEY, name TEXT)""")
+db.execute("""CREATE TABLE IF NOT EXISTS teacher_attendance (id SERIAL PRIMARY KEY, teacher_name TEXT, status INTEGER, date TEXT)""")
+db.execute("""CREATE TABLE IF NOT EXISTS notices (id SERIAL PRIMARY KEY, title TEXT NOT NULL, content TEXT NOT NULL, date TEXT DEFAULT CURRENT_DATE, posted_by TEXT)""")
 db.execute("""
 CREATE TABLE IF NOT EXISTS fees (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        id SERIAL PRIMARY KEY,
             student_name TEXT NOT NULL,
                 class_name TEXT NOT NULL,
                     amount REAL NOT NULL,
