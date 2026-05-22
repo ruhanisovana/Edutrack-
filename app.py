@@ -392,7 +392,7 @@ def updates():
             posted_by
             )
 
-          return redirect("/updates")
+            return redirect("/updates")
           
     try:
         fees = db.execute("SELECT * FROM fees")
