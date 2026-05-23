@@ -397,12 +397,12 @@ def updates():
             return redirect("/updates")
           
     try:
-        fees = db.execute("SELECT * FROM fees")
+        fees = db.execute("SELECT * FROM fees ORDER BY id DESC")
     except:
         fees = []
         
     try:
-        homework = db.execute("SELECT * FROM homework WHERE date = ?", today)
+        homework = db.execute("SELECT * FROM homework ORDER BY id DESC")
     except:
         homework = []
         
@@ -412,12 +412,12 @@ def updates():
         notices = []
         
     try:
-        attendance = db.execute("SELECT * FROM attendance WHERE date = ?", today)
+        attendance = db.execute("SELECT * FROM attendance ORDER BY id DESC")
     except:
         attendance = []
         
     try:
-        teacher_attendance = db.execute("SELECT * FROM teacher_attendance WHERE date = ?", today)
+        teacher_attendance = db.execute("SELECT * FROM teacher_attendance ORDER BY id DESC")
     except:
         teacher_attendance = []
 
